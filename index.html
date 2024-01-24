@@ -6,13 +6,70 @@
     <title>Project</title>
 </head>
 <style>
-
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+     }
+     body{
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+     }
+     .form{
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 20px;
+        border-radius: 16px;
+        align-items: center;
+     }
+     img{
+        mix-blend-mode: multiply;
+        margin-top: 50px;
+        width: 80px;
+     }
+     @media(max-width: 600px){
+        .form{
+        width: 70%;
+        }
+     }
 </style>
 <body>
-    <form>
-        <label>Nechanvhi O`rinni oldingiz?</label>
-        <input type="number" placeholder="Raqam yozing...">
+    <form class="form">
+        <label>Nechanchi o`rinni oldingiz?</label><br>
+        <input class="input" type="number" placeholder="Raqam yozing..."><br>
         <button>Tekshirish</button>
+        <img class="medals" src="./img/12.png">
     </form>
+
+    <script>
+        var form = document.querySelector(".form")
+        var input = document.querySelector(".input")
+        var medal = document.querySelector(".medals")
+        
+        var text = document.createElement("h1")
+        form.addEventListener("submit", (e)=>{
+            e.preventDefault();
+          if(input.value == 1){
+            text.innerHTML = `Oltin medal!`
+            medal.src = "img/1.png"
+          }else if (input.value == 2){
+            text.innerHTML = `Kumush medal!`
+            medal.src = "img/2.png"
+          }else if (input.value == 3){
+            text.innerHTML = `Bronza medal!`
+            medal.src = "img/3.png"
+          }else{
+            text.innerHTML = `Afsuski medal yoq!`
+            medal.src = "img/14.png"
+          }
+
+
+          form.appendChild(text)
+        })
+    </script>
 </body>
 </html>
